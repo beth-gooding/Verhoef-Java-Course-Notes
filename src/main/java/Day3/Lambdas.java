@@ -11,11 +11,19 @@ public class Lambdas {
 
     public static void main(String[] args){
         // Java comes with predefined interfaces to give types to our lambdas
-        Predicate<String> stringLambda = s -> s.length() > 4; // Predicate takes in input type and expects boolean output
+
+        // Here we don't need curly braces and return keyword, but you would if you are doing more than one thing
+        // Predicate takes in input type and expects boolean output
+        Predicate<String> stringLambda = s -> s.length() > 4;
 
         // We can also define lambdas directly where we use them
         List<String> stringList = Arrays.asList("Hello", "my", "friends");
         List<String> filteredStringList = stringList.stream().filter(s -> s.length() > 4).collect(Collectors.toList());
         System.out.println("The length of the filteredStringList should be 2. It is: " + filteredStringList.size());
+
+        // You can tell the compiler the type it is taking into the lambda like this
+        Predicate<String> stringLambda2 = (String s) -> s.length() > 4;
+
+
     }
 }
